@@ -12,24 +12,31 @@ O Banco de dados resultante tem o dado estruturado, tipado e com definições de
 O banco final tem ~24GB no disco.
 
 
-::
+.. csv-table:: Database Created
+   :delim: |
+   :header: "Table" , "Number of Records"
+   :widths: 70, 30
 
-   Arquivos CSV encontrados: 35
+   cnae                | 1,358
+   motivo              | 60
+   municipio           | 5,570
+   pais                | 254
+   natureza_juridica   | 89
+   qualificacao        | 67
+   simples             | 41,093,712
+   empresa             | 60,294,472
+   estabelecimento     | 63,333,636
+   socio               | 24,933,508
 
-   Database Disk Size: 24 GB
 
-   Tabela cnae................ 1,358 registros
-   Tabela motivo.............. 60 registros
-   Tabela municipio........... 5,570 registros
-   Tabela pais................ 254 registros
-   Tabela natureza_juridica... 89 registros
-   Tabela qualificacao........ 67 registros
-   Tabela simples............. 40,772,960 registros
-   Tabela empresa............. 59,954,860 registros
-   Tabela estabelecimento..... 53,476,792 registros
-   Tabela socio............... 24,811,408 registros
+.. csv-table:: Setup
+   :delim: |
+   :header: "CPU" , "Memory"  , "Time"
+   :widths: 50, 40, 10
 
-   APP Execution Time: 00:39:36 (2376.99650s) - CPU Time: 00:04:38 (278.95802s)
+   3.1 GHz Dual-Core Intel Core i7  | 16 GB 1867 MHz DDR3 | 39
+   2.60 GHz Intel i5 * 12 | 32 GB  | 21
+
 
 .. note::
 
