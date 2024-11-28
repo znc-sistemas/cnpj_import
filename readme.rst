@@ -31,7 +31,7 @@ O banco final tem ~24GB no disco.
 
 .. csv-table:: Setup
    :delim: |
-   :header: "CPU" , "Memory"  , "Time"
+   :header: "CPU" , "Memory"  , "Time (min)"
    :widths: 50, 40, 10
 
    3.1 GHz Dual-Core Intel Core i7  | 16 GB 1867 MHz DDR3 | 39
