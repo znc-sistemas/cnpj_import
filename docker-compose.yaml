@@ -1,0 +1,56 @@
+services:
+  app:
+    build:
+      context: .
+    mem_limit: 512m
+    mem_reservation: 512m
+    container_name: cnpjcheck
+    stdin_open: true  # prod tira isso
+    tty: true
+    depends_on:
+      - postgis16
+    volumes:
+      - ./app/:/usr/src/app/
+      - data-files:/usr/src/data_files/
+
+
+  postgis16:
+    image: postgis/postgis:16-3.5-alpine
+    mem_limit: 2.5GB
+    mem_reservation: 1.5GB
+    shm_size: '1gb'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgresql
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - data-files:/usr/src/data_files/
+    container_name: postgis16
+
+    ports:
+      - ${DB_PORT}:5432
+    command:
+      - "postgres"
+      - "-c"
+      - "autovacuum=OFF"
+      - "-c"
+      - "min_wal_size=1GB"
+      - "-c"
+      - "max_wal_size=5GB"
+      - "-c"
+      - "shared_buffers=768MB"
+      - "-c"
+      - "fsync=OFF"
+      - "-c"
+      - "full_page_writes=off"
+      - "-c"
+      - "checkpoint_timeout=15min" # min tem que ser minusculo
+
+volumes:
+  pgdata:
+  data-files:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data_files
